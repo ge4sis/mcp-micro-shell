@@ -90,20 +90,21 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 ### 1. Stdio 모드 (기본값)
 대부분의 로컬 데스크톱 AI 도구 연동에 적합한 표준 입출력 방식입니다.
 ```bash
-uv run mcp-micro-shell
+uvx mcp-micro-shell
 ```
+*(소스 코드를 로컬에 다운로드하여 기동하는 경우 `uv run mcp-micro-shell` 명령을 사용할 수도 있습니다).*
 
 ### 2. SSE 모드 (웹 API 방식)
 원격 환경이나 서버 연동이 필요한 경우 유용한 HTTP SSE 서버 기동 방식입니다.
 ```bash
-uv run mcp-micro-shell --transport sse --host 127.0.0.1 --port 8000
+uvx mcp-micro-shell --transport sse --host 127.0.0.1 --port 8000
 ```
 
 ---
 
 ## 🔌 MCP 클라이언트와 연동 (`mcp.json`)
 
-Claude Desktop, Cursor, cl0w 등의 클라이언트 환경에서 `uvx`를 통해 로컬에 연동하려면 아래 설정을 클라이언트 JSON 파일에 추가해 줍니다.
+Claude Desktop, Cursor, cl0w 등의 클라이언트 환경에서 `uvx`를 통해 연동하려면 아래 설정을 클라이언트 JSON 파일에 추가해 줍니다.
 
 ```json
 {
@@ -111,15 +112,13 @@ Claude Desktop, Cursor, cl0w 등의 클라이언트 환경에서 `uvx`를 통해
     "mcp-micro-shell": {
       "command": "uvx",
       "args": [
-        "--from",
-        "C:\\Users\\USERNAME\\Documents\\mcp-micro-shell",
         "mcp-micro-shell"
       ],
       "env": {
-        "MCP_MICRO_SHELL_WORKSPACE": "C:\\Users\\USERNAME\\Documents\\mcp-micro-shell\\workspace"
+        "MCP_MICRO_SHELL_WORKSPACE": "C:\\path\\to\\your\\workspace"
       }
     }
   }
 }
 ```
-*(추후 PyPI에 패키지를 공식 게시한 후에는 `--from` 로컬 경로 인자를 생략하고 간편히 클라우드로부터 바로 내려받아 연동할 수 있게 됩니다.)*
+*(로컬 소스 코드를 복제하거나 물리 경로를 적어둘 필요가 전혀 없으며, `uvx`가 알아서 PyPI로부터 최신 릴리즈를 자동으로 로드하여 무중단 연동을 완료합니다).*
