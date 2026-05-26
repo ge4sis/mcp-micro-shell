@@ -1,6 +1,7 @@
 # 🛠️ mcp-micro-shell
 
 <p align="center">
+  <img src="https://img.shields.io/badge/pypi-v0.1.0-blue.svg?style=for-the-badge&logo=pypi&logoColor=white" alt="PyPI Version">
   <img src="https://img.shields.io/badge/python-3.13+-blue.svg?style=for-the-badge&logo=python&logoColor=white" alt="Python Version">
   <img src="https://img.shields.io/badge/MCP-1.27.1+-orange.svg?style=for-the-badge&logo=modelcontextprotocol&logoColor=white" alt="MCP Version">
   <img src="https://img.shields.io/badge/powered%20by-uv-purple.svg?style=for-the-badge&logo=astral&logoColor=white" alt="Powered by UV">
@@ -60,6 +61,16 @@ mcp-micro-shell/
 
 ## 🚀 시작하기
 
+### 설치 (Installation)
+**`uv`**를 사용하여 PyPI로부터 이 패키지를 전역에 설치하고 다이렉트로 기동할 수 있습니다:
+```bash
+# 전역 도구로 설치
+uv tool install mcp-micro-shell
+
+# 또는 설치 없이 즉시 실행
+uvx mcp-micro-shell
+```
+
 ### 사전 요구사항
 시스템에 `uv`가 설치되어 있어야 합니다. 설치되지 않은 경우 아래 명령어로 간편하게 설치할 수 있습니다:
 
@@ -101,11 +112,11 @@ Claude Desktop, Cursor, cl0w 등의 클라이언트 환경에서 `uvx`를 통해
       "command": "uvx",
       "args": [
         "--from",
-        "C:\\Users\\SKTelecom\\Documents\\mcp-micro-shell",
+        "C:\\Users\\USERNAME\\Documents\\mcp-micro-shell",
         "mcp-micro-shell"
       ],
       "env": {
-        "MCP_MICRO_SHELL_WORKSPACE": "C:\\Users\\SKTelecom\\Documents\\mcp-micro-shell\\workspace"
+        "MCP_MICRO_SHELL_WORKSPACE": "C:\\Users\\USERNAME\\Documents\\mcp-micro-shell\\workspace"
       }
     }
   }

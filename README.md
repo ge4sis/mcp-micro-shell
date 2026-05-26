@@ -1,6 +1,7 @@
 # 🛠️ mcp-micro-shell
 
 <p align="center">
+  <img src="https://img.shields.io/badge/pypi-v0.1.0-blue.svg?style=for-the-badge&logo=pypi&logoColor=white" alt="PyPI Version">
   <img src="https://img.shields.io/badge/python-3.13+-blue.svg?style=for-the-badge&logo=python&logoColor=white" alt="Python Version">
   <img src="https://img.shields.io/badge/MCP-1.27.1+-orange.svg?style=for-the-badge&logo=modelcontextprotocol&logoColor=white" alt="MCP Version">
   <img src="https://img.shields.io/badge/powered%20by-uv-purple.svg?style=for-the-badge&logo=astral&logoColor=white" alt="Powered by UV">
@@ -60,6 +61,16 @@ All tools automatically resolve relative paths against the designated workspace 
 
 ## 🚀 Getting Started
 
+### Installation
+You can install and run the server globally from PyPI using **`uv`**:
+```bash
+# Install globally
+uv tool install mcp-micro-shell
+
+# Or run instantly without installation
+uvx mcp-micro-shell
+```
+
 ### Prerequisites
 Make sure you have `uv` installed. If you don't, run:
 
@@ -79,13 +90,14 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 ### 1. Stdio Mode (Default)
 Ideal for standard JSON-RPC desktop AI integrations.
 ```bash
-uv run mcp-micro-shell
+uvx mcp-micro-shell
 ```
+*(For local development in the cloned repository, you can use `uv run mcp-micro-shell` instead).*
 
 ### 2. SSE Mode (Web API)
 Ideal for remote integrations. Runs an HTTP SSE server.
 ```bash
-uv run mcp-micro-shell --transport sse --host 127.0.0.1 --port 8000
+uvx mcp-micro-shell --transport sse --host 127.0.0.1 --port 8000
 ```
 
 ---
@@ -100,15 +112,13 @@ To use this server inside AI clients (like Claude Desktop, Cursor, cl0w), config
     "mcp-micro-shell": {
       "command": "uvx",
       "args": [
-        "--from",
-        "C:\\Users\\SKTelecom\\Documents\\mcp-micro-shell",
         "mcp-micro-shell"
       ],
       "env": {
-        "MCP_MICRO_SHELL_WORKSPACE": "C:\\Users\\SKTelecom\\Documents\\mcp-micro-shell\\workspace"
+        "MCP_MICRO_SHELL_WORKSPACE": "C:\\path\\to\\your\\workspace"
       }
     }
   }
 }
 ```
-*(Once published to PyPI, the `--from` local path argument can be omitted to pull directly from PyPI).*
+*(No need to clone or point to local directories. `uvx` will automatically download, update, and launch the server directly from PyPI).*
