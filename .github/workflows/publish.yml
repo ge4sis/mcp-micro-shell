@@ -3,13 +3,14 @@ name: Publish to PyPI
 on:
   push:
     tags:
-      - 'v*'
+      - 'v*'  # v1.0.0 같은 태그가 푸시될 때 실행
 
 jobs:
   publish:
     name: Build and Publish Python Package
     runs-on: ubuntu-latest
     permissions:
+      # Trusted Publishing 인증을 위해 반드시 필요합니다.
       id-token: write
       contents: read
 
